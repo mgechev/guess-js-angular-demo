@@ -1,27 +1,29 @@
-# GuessJsAngularDemo
+# Guess.js Angular demo
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.3.
+Data-driven bundling with Guess.js.
 
-## Development server
+## Usage
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Since you'll not be able to access the Google Analytics data the current project uses, explore the configuration at `extend.webpack.js`.
 
-## Code scaffolding
+You will notice that the last plugin in this ejected Angular CLI application is `GuessPlugin` which has quite minimalistic setup:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```js
+new GuessPlugin({
 
-## Build
+  // View ID for your Google Analytics project
+  GA: 'XXXXXXXXX',
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+  // Optional
+  period: {
+    startDate: new Date('2016-1-2'),
+    endDate: new Date('2018-2-24'),
+  }
+})
+```
 
-## Running unit tests
+The project also defines a `routeFormatter` which is an optional property that you'll most likely not need.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## License
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+MIT
